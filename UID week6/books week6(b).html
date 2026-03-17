@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial;
+            }
+            .products {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap:30px;
+            }
+            .item {
+                background:#f5f7ff;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            }
+            .btn {
+                color:white;
+                background:#1e3a8a;
+                width:120px;
+                height:40px;
+                cursor:pointer;
+                border-radius:50px;
+                border:none;
+            }
+            .btn:hover {
+                background:#2563eb;
+            }
+        </style>
+        <body>
+        <h2>Books</h2>    
+            <div class="products">
+                <div class="item">
+                    <h3>Nenu (Atmakatha in Telugu) by Brahmanandam </h3>
+                    <p>Autobiography of the legendary comedian Brahmanandam</p>
+                    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSZaSesLLQpjKLpRdoT1grCIehZdsX5S0YmvJ40q72furbpi65lYhZvq_kllqwAUYo4ct7dHEDuJZjM4dN-HOQtyaUsGtUxQHYUXOYBJPz50DjBbje3pM1LMg" alt="Nenu (Atmakatha in Telugu) by Brahmanandam" style="width: 200px; height: 250px;">
+                    <p>price:₹375</p>
+                    <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+                </div>
+                <div class="item">
+                    <h3>Wings of fire</h3>
+                    <p>Inspirational autobiography of Dr. A.P.J. Abdul Kalam</p>
+                    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTVXi1jCnsJeXhtJuGw_IOor41v5qYjbTeEEwaE0XfQggoYQ_IYs0wXvnaGz2SjVsMnxK9AvSVR97-3StkuK83qTrdQrfDy" alt="Wings of fire" style="width: 200px; height: 250px;">
+                    <p>price:₹133</p>
+                    <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+                </div>
+                <div class="item">
+                    <h3>Disha Target NTA JEE Main PYQ</h3>
+                    <p>Comprehensive guide for JEE Main preparation</p>
+                    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSNUd3Y03Fn1gcKtgCKampk9ida9qDWsFeyTcdoNLiDiNK3bTqdEQ8EIzz6q84nacFCo5fYGE0VWYp4WBfYYP1knzvDVbZgl9S4xH-S0M7AFsewEEoKs3VFUQ" alt="Disha Target NTA JEE Main PYQ" style="width: 200px; height: 250px;">
+                    <p>price:₹390</p>
+                    <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+                </div>
+                <div class="item">
+                    <h3>Che Guevara: A Revolutionary Life</h3>
+                    <p>Biography of the iconic revolutionary Che Guevara</p>
+                    <img src="https://m.media-amazon.com/images/I/91qwVFIzxLL.jpg" alt="Che Guevara: A Revolutionary Life" style="width: 200px; height: 250px;">
+                    <p>price:₹879</p>
+                    <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+                </div>
+            </div>
+        </body>
+</html>

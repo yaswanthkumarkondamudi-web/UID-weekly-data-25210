@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial;
+            }
+            .products {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap:30px;
+            }
+            .item {
+                background:#f5f7ff;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            }
+            .btn {
+                color:white;
+                background:#1e3a8a;
+                width:120px;
+                height:40px;
+                cursor:pointer;
+                border-radius:50px;
+                border:none;
+            }
+            .btn:hover {
+                background:#2563eb;
+            }
+        </style>
+    </head>
+    <body>
+    <h2>Electronics</h2>    
+        <div class="products">
+            <div class="item">
+                <h3>Samsung A55 5g</h3>
+                <p>Experience lightning-fast performance with the Samsung A55 5g.</p>
+                <img src="https://m.media-amazon.com/images/I/71EeBkydf9L._AC_UF894,1000_QL80_.jpg" alt="Samsung A55 5g" style="width:200px;height:250px;">
+                <p>price:₹29,999</p>
+                <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <h3>Apple iPhone 17 Pro</h3>
+                <p>Discover the ultimate smartphone experience with the Apple iPhone 17 Pro.</p>
+                <img src="https://m.media-amazon.com/images/I/71JGCn1z1TL._AC_UY327_FMwebp_QL65_.jpg" alt="Apple iPhone 17 Pro" style="width:200px;height:250px;">
+                <p>price:₹1,74,900</p>
+                <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <h3>Sony PlayStation®5 Digital Edition (slim) Console Video Game</h3>
+                <p>Immerse yourself in stunning visuals and seamless performance with the Sony PlayStation®5 Digital Edition (slim) Console Video Game.</p>
+                <img src="https://m.media-amazon.com/images/I/41mA095BwTL._SX342_SY445_QL70_FMwebp_.jpg" alt="Sony PlayStation®5 Digital Edition (slim) Console Video Game" style="width:200px;height:200px;">
+                <p>price:₹49,990</p>
+                <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <h3>SAMSUNG Galaxy Tab A8 10.5" Android 11 Wi-Fi Tablet SM-X200</h3>
+                <p>Stay connected and entertained with the SAMSUNG Galaxy Tab A8 10.5" Android 11 Wi-Fi Tablet SM-X200.</p>
+                <img src="https://m.media-amazon.com/images/I/61xIt4u5+xL.jpg" alt="SAMSUNG Galaxy Tab A8 10.5"style="width:200px;height:200px;">
+                <p>price:₹24,999</p>
+                <button class="btn" onclick="alert('Item added to cart!')">Add to Cart</button>
+            </div>
+        </div>
+</html>

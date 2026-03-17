@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forms in HTML</title>
+    </head>
+    <body style="background-color:#e6e6fa;">
+        <h1 style="text-align: center; color:black;"> College Admission Registration Form</h1>
+        <form>
+        <table border="1" align="center"  cellpadding="8" style="background-color: whitesmoke;">
+            <tr>
+                <td>Full name:</td>
+                <td><input type="text" name="fullname"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="tel" name="phone"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                <input type="radio" name="gender" value="other"> Other</td>
+            </tr>
+            <tr>
+                <td>Course applying for:</td>
+                <td><select name="course" id="course" >
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="PhD">PhD</option>
+                    <option value="MBA">MBA</option></select></td>
+            </tr>
+            <tr>
+                <td>Hobbies:</td>
+                <td><input type="checkbox" name="hobbies" value="reading"> Sports
+                    <input type="checkbox" name="hobbies" value="sports"> Music
+                    <input type="checkbox" name="hobbies" value="music"> Reading</td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td><input type="date" name="dob"></td>
+            </tr>
+            <tr>
+                <td>Upload Certificate:</td>
+                <td><input type="file" name="certificate"></td>
+            </tr>
+           <tr>
+            <td>Address:</td>
+            <td><textarea name="address" rows="4" cols="50"></textarea></td>
+           </tr>
+              <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit" value="Submit"> <input type="reset" value="Reset"></td>
+                
+            </tr>
+        </table>
+        </form>
+        
+    </body>
+</html>

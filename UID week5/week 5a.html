@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title style="text-align: center; color:#0b2a4a">AMRITA VISHWA VIDYAPEETAM CAMPUSES</title>
+    <style>
+        
+        body {
+            background-image: url(https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg); background-size: cover; background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+
+        }
+
+        .cardcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 370px;
+            height: 370px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;   
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .card img {
+            width: 270px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .button {
+    background-color: #0b2a4a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+        button:hover {
+    background-color: #144272;
+}
+        
+    </style>
+</head>
+
+<body>
+    
+    <div class="cardcontainer">
+        <div class="card">
+            <h3 style="color:#0B3C5D ;"><b>Amrita Amritapuri</b></h3>
+            <img src="https://webfiles.amrita.edu/2014/02/Div8nr6Q-amritapuri-campus.jpg" alt="Amrita University">
+            <p style="text-align: center; padding: 0 10px;">Amritapuri Campus, located in Kerala, India.</p>
+            <button class="button" onclick="window.location.href='https://www.amrita.edu/campus/amritapuri'">Visit Amritapuri Campus</button>
+            
+        </div>
+
+        <div class="card">
+            <h3 style="color:#0B3C5D ;"><b>Amrita Amaravati</b></h3>
+            <img src="https://webfiles.amrita.edu/2024/10/amaravati-campus-banner.jpg" alt="Amrita University">
+            <p style="text-align: center; padding: 0 10px;">Amaravati Campus, located in Andhra Pradesh, India.</p>
+            <button class="button" onclick="window.location.href='https://www.amrita.edu/campus/amaravati'">Visit Amaravati Campus</button>
+            
+        </div>
+
+        <div class="card">
+            <h3 style="color:#0B3C5D ;"><b>Amrita Coimbatore</b></h3>
+            <img src="https://webfiles.amrita.edu/2020/06/hyKlkquw-790-100.jpg" alt="Amrita University">
+            <p style="text-align: center; padding: 0 10px;">Coimbatore Campus, located in Tamil Nadu, India.</p>
+            <button class="button" onclick="window.location.href='https://www.amrita.edu/campus/coimbatore'">Visit Coimbatore Campus</button>
+            
+        </div>
+    </div>
+</body>
+</html>

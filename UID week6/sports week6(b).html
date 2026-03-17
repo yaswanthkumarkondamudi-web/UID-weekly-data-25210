@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body{
+font-family:Arial;
+}
+.products{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+gap:30px;
+}
+.item{
+background:#f5f7ff;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.btn{
+color:white;
+background:#1e3a8a;
+width:120px;
+height:40px;
+cursor:pointer;
+border-radius:50px;
+border:none;
+}
+.btn:hover{
+background:#2563eb;
+}
+</style>
+</head>
+<body>
+<h2>Sports</h2>
+<div class="products">
+<div class="item">
+<h3>Cricket Bat</h3>
+<img src="https://m.media-amazon.com/images/I/317VTY6RngL._AC_UF894,1000_QL80_.jpg" width="150">
+<p>Price: ₹689</p>
+<p>Click the button to add to cart</p>
+<button onclick="alert('Item added to cart!')" class="btn">Add to Cart</button>
+</div>
+<div class="item">
+<h3>Football</h3>
+<img src="https://m.media-amazon.com/images/I/51QsIn-sTAL._SY300_SX300_QL70_FMwebp_.jpg" width="150">
+<p>Price: ₹1279</p>
+<button onclick="alert('Item added to cart!')" class="btn">Add to Cart</button>
+</div>
+<div class="item">
+<h3>Tennis Racket</h3>
+<img src="https://m.media-amazon.com/images/I/61sMC5gNnZL._SY879_.jpg" width="150">
+<p>Price: ₹3620</p>
+<button onclick="alert('Item added to cart!')" class="btn">Add to Cart</button>
+</div>
+<div class="item">
+<h3>Badminton Shuttle</h3>
+<img src="https://m.media-amazon.com/images/I/41m9a4d0ilL._SY300_SX300_QL70_FMwebp_.jpg" width="150">
+<p>Price: ₹699</p>
+<button onclick="alert('Item added to cart!')" class="btn">Add to Cart</button>
+</div>
+</div>
+</body>
+</html>

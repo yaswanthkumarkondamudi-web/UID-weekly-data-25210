@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial;
+            }
+            .products{
+                display:grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 30px;
+            }
+            .item{
+                background: #f5f7ff;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            }
+            .btn{
+                color:white;
+                background: #1e3a8a;
+                width:120px;
+                height:40px;
+                cursor:pointer;
+                border-radius:50px;
+                border:none;
+            }
+            .btn:hover{
+                background: #2563eb;
+            }
+        </style>
+    </head>
+    <body>
+    <h2>Clothing</h2>    
+        <div class="products">
+            <div class="item">
+                <h3>T-shirt</h3>
+                <p>Comfortable and stylish</p>
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQMoElFOjQudXhsKlJBQF-EAunyZcQG-KYu2uccj1z2ZfbR7mUhprhBt3YnAjpYMK9B8c1l98wZ1INgXu3Yf46Fu5HUNUsm8V65TKQN8znUEhs2y-u9UsI3" alt="T-shirt" style="width: 200px; height: 250px;">
+                <p>price:₹1499</p>
+                <button class="btn" onclick="alert('Added to cart!')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <h3>Jeans</h3>
+                <p>Durable and fashionable</p>
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQMPpKOs5mBd3U8neJlv9_RDwfvRyrFEFw8a5tCfkKO6Q7XHflgU1LSKsF7XzUI8LHu5O89YtGUOu171RQiLKiTEmu7AldFRbVDRNFvKxXpFFRUfbvMqcCk" alt="Jeans pants" style="width: 200px; height: 200px;">
+                <p>price:₹1999</p>
+                <button class="btn" onclick="alert('Added to cart!')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <h3>Jacket</h3>
+                <p>Warm and Stylish</p>
+                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQCdO5QyuoACKZxgWRnlc-6KVa410EO-jKEj83qFyRPOoRafz-jYlAet7JDDuWly6G0TGBIFRu8KWnPAPzCq19HZJC4x80pWo1TF05R19zYN2rZwg7NrP_4DQ" alt="Jacket" style="width: 200px; height: 200px;">
+                <p>price:₹999</p>
+                <button class="btn" onclick="alert('Added to cart!')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <h3>Formal shirt</h3>
+                <p>Professional and well-fitted</p>
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRvKFi3ewfs4W7q7ZD5ybG21TxiOAdRRZGSm6Wv-6DgQxmRvGX_gij7dU4E8Y3qAWU_ThEEahhhC_G9bA86-1jNQdqUmPFOUjgL3OeeqWrV" alt="Formal shirt" style="width: 200px; height: 250px;">
+                <p>price:₹3092</p>
+                <button class="btn" onclick="alert('Added to cart!')">Add to Cart</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                display:grid;
+                grid-template-rows: auto auto 1fr auto;
+                grid-template-columns: 200px 1fr;
+                grid-template-areas: "header header"
+                                    "sale sale"
+                                    "sidebar contents"
+                                    "footer footer"
+                                    ;
+                gap: 10px;
+                font-family:Arial;
+                background:#f8fafc;
+            }
+            .header{
+                grid-area: header;
+                background:#1e3a8a;
+                color:white;
+                padding:20px;
+                text-align:center;
+            }
+            .sale{
+                grid-area: sale;
+                background:#2563eb;
+                color:white;
+                padding:20px;
+                text-align:center;
+            }
+            .sidebar{
+                grid-area: sidebar;
+                background:#e0e7ff;
+                padding:20px;
+            }
+            .contents{
+                grid-area: contents;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                grid-template-areas: "item1 item2"
+                                    "item3 item4";
+                background:#f0f4ff;
+                padding:20px;
+            }
+            .footer{
+                grid-area: footer;
+                background:#1e3a8a;
+                color:white;
+                padding:20px;
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        
+            <div class="header">
+                My E-Commerce Website
+            </div>
+            <div class="sale">
+                Big Sale - Up to 50% Off!
+            </div>
+            <div class="sidebar">
+                <h3>Categories</h3>
+                <p>Electronics</p>
+                <p>Clothing</p>
+                <p>Home & Kitchen</p>
+                <p>Books</p>
+                <p>Sports</p>
+                <p>Beauty & Personal Care</p>
+                <p>Health & Wellness</p>
+                <p>Garden</p>
+                <p>Toys</p>
+                <p>Settings</p>
+            </div>
+            <div class="contents">
+                <div style="background:white;margin:10px;padding:20px;border-radius:10px; grid-area:item1;">
+                    <h3>Watch</h3>
+                    <img src="https://images.samsung.com/is/image/samsung/assets/in/f2507/pcd/watches/PCD_KV_Galaxy-Watch8_1440x640_pc.jpg?imwidth=1366" width="250" alt="Watch" height="150">
+                    <p>Price:&#8377;1999</p>
+                    <button style="padding:8px 16px;margin-top:10px;cursor:pointer; color:white; background:#1e3a8a;">Buy Now</button>
+                </div>
+                <div style="background:white;margin:10px;padding:20px;border-radius:10px; grid-area:item2;">
+                    <h3>Smartphone</h3>
+                    <img src="https://m.media-amazon.com/images/I/71EeBkydf9L._AC_UF894,1000_QL80_.jpg" width="150" alt="Smartphone" height="150">
+                    <p>Price:&#8377;29999</p>
+                    <button style="padding:8px 16px;margin-top:10px;cursor:pointer; color:white; background:#1e3a8a;">Buy Now</button>
+                </div>  
+                <div style="background:white;margin:10px;padding:20px;border-radius:10px;grid-area:item3;">
+                    <h3>Headphones</h3>
+                    <img src="https://img.global.news.samsung.com/global/wp-content/uploads/2015/08/BG_Main.jpg" width="150" alt="Headphones" height="150">
+                    <p>Price:&#8377;3999</p>
+                    <button style="padding:8px 16px;margin-top:10px;cursor:pointer;color:white;background:#1e3a8a;">Buy Now</button>
+                </div>
+                <div style="background:white;margin:10px;padding:20px;border-radius:10px; grid-area:item4;">
+                    <h3>Tablet</h3>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4-mLZeFCjocQX7NEck2Tdc-NvI-3DaNhPA&s" width="250" alt="Tablet" height="150">
+                    <p>Price:&#8377;19999</p>
+                    <button style="padding:8px 16px;margin-top:10px;cursor:pointer;color:white;background:#1e3a8a;">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2026 My E-Commerce Website. All rights reserved.
+        </div>
+    </body>
+
+</html>
