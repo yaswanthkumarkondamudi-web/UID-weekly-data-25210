@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Number Analyzer</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+    }
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        width: 350px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+    h1 {
+        margin-bottom: 20px;
+        color: #444;
+    }
+    input {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background: #667eea;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #5a67d8;
+        transform: scale(1.05);
+    }
+    .output {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background: #f3f4f6;
+        min-height: 40px;
+        font-weight: bold;
+        color: #222;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Number Analyzer</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <div class="buttons">
+        <button onclick="checkEven()">Even</button>
+        <button onclick="checkOdd()">Odd</button>
+        <button onclick="checkPrime()">Prime</button>
+        <button onclick="factorial()">Factorial</button>
+        <button onclick="checkArmstrong()" style="grid-column: span 2;">Armstrong</button>
+    </div>
+
+    <div class="output" id="output">Result will appear here</div>
+</div>
+<script>
+function getInput() {
+    let num = document.getElementById("numberInput").value;
+    if (num === "") {
+        document.getElementById("output").innerText = "Please enter a number";
+        return null;
+    }
+    return parseInt(num);
+}
+function checkEven() {
+    let num = getInput();
+    if (num === null) return;
+    document.getElementById("output").innerText = (num % 2 === 0) ? num + " is Even" : num + " is NOT Even";
+}
+function checkOdd() {
+    let num = getInput();
+    if (num === null) return;
+    document.getElementById("output").innerText = (num % 2 !== 0) ? num + " is Odd" : num + " is NOT Odd";
+}
+function checkPrime() {
+    let num = getInput();
+    if (num === null) return;
+    if (num <= 1) {
+        document.getElementById("output").innerText = num + " is NOT Prime";
+        return;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            document.getElementById("output").innerText = num + " is NOT Prime";
+            return;
+        }
+    }
+    document.getElementById("output").innerText = num + " is Prime";
+}
+function factorial() {
+    let num = getInput();
+    if (num === null) return;
+    if (num < 0) {
+        document.getElementById("output").innerText = "Factorial not defined for negative numbers";
+        return;
+    }
+    let fact = 1;
+    for (let i = 1; i <= num; i++) {
+        fact *= i;
+    }
+    document.getElementById("output").innerText = "Factorial of " + num + " is " + fact;
+}
+function checkArmstrong() {
+    let num = getInput();
+    if (num === null) return;
+    let sum = 0;
+    let temp = num;
+    let digits = num.toString().length;
+    while (temp > 0) {
+        let digit = temp % 10;
+        sum += Math.pow(digit, digits);
+        temp = Math.floor(temp / 10);
+    }
+
+    document.getElementById("output").innerText = (sum === num) ? num + " is Armstrong" : num + " is NOT Armstrong";
+}
+</script>
+</body>
+</html>
