@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Calculator</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .A { color: green; }
+        .B { color: #2ecc71; }
+        .C { color: orange; }
+        .D { color: #e67e22; }
+        .F { color: red; }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Grade Calculator</h2>
+
+    <input type="number" id="m1" placeholder="Subject 1">
+    <input type="number" id="m2" placeholder="Subject 2">
+    <input type="number" id="m3" placeholder="Subject 3">
+    <input type="number" id="m4" placeholder="Subject 4">
+    <input type="number" id="m5" placeholder="Subject 5">
+    <input type="number" id="m6" placeholder="Subject 6">
+
+    <button onclick="calculateGrade()">Calculate</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function calculateGrade() {
+
+    let m1 = Number(document.getElementById("m1").value);
+    let m2 = Number(document.getElementById("m2").value);
+    let m3 = Number(document.getElementById("m3").value);
+    let m4 = Number(document.getElementById("m4").value);
+    let m5 = Number(document.getElementById("m5").value);
+    let m6 = Number(document.getElementById("m6").value);
+
+    let avg = (m1 + m2 + m3 + m4 + m5 + m6) / 6;
+
+    let grade;
+
+    if (avg < 60) {
+        grade = "F";
+    } else if (avg < 70) {
+        grade = "D";
+    } else if (avg < 80) {
+        grade = "C";
+    } else if (avg < 90) {
+        grade = "B";
+    } else if (avg < 100) {
+        grade = "A";
+    } else {
+        grade = "Invalid";
+    }
+
+    let resultDiv = document.getElementById("result");
+
+    resultDiv.innerHTML = 
+        "Average: " + avg.toFixed(2) + "<br>Grade: " + grade;
+
+    resultDiv.className = grade; // apply color
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd or Even Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            background: #ff7e5f;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #feb47b;
+        }
+        #output {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Odd or Even from 0 to 15</h2>
+<button onclick="checkNumbers()">Check Numbers</button>
+<div id="output"></div>
+<script>
+function checkNumbers() {
+    let result = "";
+    for (let i = 0; i <= 15; i++) {
+        if (i % 2 === 0) {
+            result += i + " is Even<br>";
+        } else {
+            result += i + " is Odd<br>";
+        }
+    }
+    document.getElementById("output").innerHTML = result;
+}
+</script>
+</body>
+</html>
