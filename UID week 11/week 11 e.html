@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Registration Form</h2>
+    <input type="text" id="name" placeholder="Enter Name">
+    <div id="nameMsg"></div>
+    <input type="text" id="email" placeholder="Enter Email">
+    <div id="emailMsg"></div>
+    <input type="password" id="password" placeholder="Enter Password">
+    <div id="passMsg"></div>
+    <button onclick="validateForm()">Register</button>
+</div>
+<script>
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var nameMsg = document.getElementById("nameMsg");
+    var emailMsg = document.getElementById("emailMsg");
+    var passMsg = document.getElementById("passMsg");
+    nameMsg.innerHTML = "";
+    emailMsg.innerHTML = "";
+    passMsg.innerHTML = "";
+    var isValid = true;
+    if (name === "") {
+        nameMsg.innerHTML = "Name cannot be empty";
+        nameMsg.className = "error";
+        isValid = false;
+    }
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+        emailMsg.innerHTML = "Email cannot be empty";
+        emailMsg.className = "error";
+        isValid = false;
+    }
+    else if (!pattern.test(email)) {
+        emailMsg.innerHTML = "Invalid email format";
+        emailMsg.className = "error";
+        isValid = false;
+    }
+    if (password === "") {
+        passMsg.innerHTML = "Password cannot be empty";
+        passMsg.className = "error";
+        isValid = false;
+    }
+    else if (password.length < 6) {
+        passMsg.innerHTML = "Password must be at least 6 characters";
+        passMsg.className = "error";
+        isValid = false;
+    }
+    if (isValid === true) {
+        alert("Registration Successful!");
+    }
+}
+</script>
+</body>
+</html>

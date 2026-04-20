@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 280px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #185a9d;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .msg {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        .tick {
+            font-size: 30px;
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Email Check</h2>
+    <form id="myForm">
+        <input type="text" id="emailInput" placeholder="Enter email">
+        <div id="msg" class="msg"></div>
+        <div id="tick" class="tick">✔</div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<script>
+    var emailInput = document.getElementById("emailInput");
+    var msg = document.getElementById("msg");
+    var tick = document.getElementById("tick");
+    var form = document.getElementById("myForm");
+
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    emailInput.addEventListener("input", function () {
+        if (emailInput.value === "") {
+            msg.textContent = "";
+            tick.style.display = "none";
+        }
+        else if (emailPattern.test(emailInput.value) === false) {
+            msg.textContent = "Invalid email format!";
+            msg.className = "msg error";
+            tick.style.display = "none";
+        }
+        else {
+            msg.textContent = "Email verified successfully";
+            msg.className = "msg success";
+            tick.style.display = "block";
+        }
+    });
+    form.addEventListener("submit", function (e) {
+
+        if (emailPattern.test(emailInput.value) === false) {
+            e.preventDefault();
+            msg.textContent = "Enter valid email before submitting!";
+            msg.className = "msg error";
+            tick.style.display = "none";
+        }
+    });
+</script>
+</body>
+</html>
