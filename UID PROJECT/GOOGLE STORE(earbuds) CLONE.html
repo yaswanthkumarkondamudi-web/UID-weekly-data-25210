@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Store Clone</title>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+     font-family: "Google Sans", Arial, sans-serif;
+    }
+    body{
+      background:#ffffff;
+      overflow-x:hidden;
+    }
+    /* TOP BLUE BANNER */
+    .top-banner{
+      width:100%;
+      background:#0b57d0;
+      color:white;
+      text-align:center;
+      padding:12px;
+      font-size:17px;
+      position:static;
+    }
+    .top-banner a{
+      color:white;
+      font-weight:bold;
+    }
+    /* STICKY NAVBAR */
+    .navbar{
+      width:96%;
+      height:64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 34px;
+      background:white;
+      border-radius:40px;
+      position:fixed;
+      top:55px;
+      left:50%;
+      transform:translateX(-50%);
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      z-index:999;
+    }
+    /* LEFT SIDE */
+    .left-nav{
+      display:flex;
+      align-items:center;
+      gap:36px;
+    }
+    .left-nav a{
+  text-decoration:none;
+  color:#202124;
+  font-size:17px;
+  font-weight:500;
+  letter-spacing:-0.3px;
+  line-height:1;
+  transition:0.2s;
+}
+.left-nav a:hover{
+  color:#000;
+}   
+    /* GOOGLE LOGO */
+    .google-logo{
+      font-size:50px;
+      font-weight:bold;
+      color:#4285F4;
+      letter-spacing:-2px;
+      cursor:pointer;
+    }
+    /* RIGHT NAV */
+    .right-nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+    .nav-icon{
+      font-size:28px !important;
+      color:#3c4043;
+      cursor:pointer;
+    }
+    /* SIGN IN BUTTON */
+    .signin-btn{
+      border:none;
+      background:#0b57d0;
+      color:white;
+      padding:15px 28px;
+      border-radius:35px;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+    }
+    /* HERO SECTION */
+    .hero{
+      width:100%;
+      text-align:center;
+      padding-top:180px;
+    }
+    .hero h1{
+      font-size:84px;
+      font-weight:500;
+      color:#111;
+      line-height:1.02;
+      letter-spacing:-4px;
+    }
+    /* PRODUCTS SECTION */
+    .products{
+      display:flex;
+      justify-content:center;
+      gap:34px;
+      margin-top:90px;
+      padding-bottom:120px;
+      flex-wrap:wrap;
+    }
+    .product-item{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .card{
+      width:255px;
+      height:320px;
+      background:#f9f9f9;
+      border-radius:28px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      transition:0.3s;
+    }
+    .card:hover{
+      transform:translateY(-5px);
+    }
+    .card img{
+      width:78%;
+      object-fit:contain;
+    }
+    /* PRODUCT TEXT */
+    .product-item h2{
+     margin-top:22px;
+     font-size:18px;
+     font-weight:600;
+
+     color:#202124;
+
+     letter-spacing:-0.5px;
+
+     width:100%;
+     text-align:center;
+}
+    /* RESPONSIVE */
+    @media(max-width:1200px){
+      .hero h1{
+        font-size:68px;
+      }
+    }
+    @media(max-width:768px){
+      .navbar{
+        width:94%;
+        height:68px;
+      }
+      .hero{
+        padding-top:170px;
+      }
+      .hero h1{
+        font-size:48px;
+      }
+      .right-nav{
+        gap:15px;
+      }
+      .nav-icon{
+        font-size:24px !important;
+      }
+      .signin-btn{
+        padding:12px 20px;
+        font-size:15px;
+      }
+      .products{
+        flex-direction:column;
+        align-items:center;
+      }
+      .card{
+        width:90%;
+      }
+      .product-item{
+        align-items:center;
+      }
+      .product-item h2{
+        margin-left:0;
+      }
+    }
+    /* FEATURE CARDS */
+.feature-cards{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  padding:20px 24px 100px;
+  flex-wrap:wrap;
+}
+.feature-card{
+  width:47%;
+  height:590px;
+  border-radius:28px;
+  position:relative;
+  overflow:hidden;
+}
+.gray-card{
+  background:#dfe3ea;
+}
+.purple-card{
+  background:#e7e5f7;
+}
+.feature-content{
+  position:absolute;
+  top:34px;
+  left:32px;
+  z-index:2;
+}
+.feature-content h2{
+  font-size:34px;
+  font-weight:500;
+  color:#111;
+  letter-spacing:-2px;
+  margin-bottom:12px;
+}
+.feature-content p{
+  font-size:17px;
+  color:#202124;
+  margin-bottom:22px;
+}
+.feature-content button{
+  padding:12px 18px;
+  border:1px solid #202124;
+  border-radius:30px;
+  background:transparent;
+  font-size:16px;
+  cursor:pointer;
+}
+.feature-card img{
+  position:absolute;
+  bottom:-20px;
+  right:-20px;
+  width:78%;
+  object-fit:contain;
+}
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .feature-card{
+    width:100%;
+    height:520px;
+  }
+  .feature-content h2{
+    font-size:28px;
+  }
+  .feature-card img{
+    width:80%;
+  }
+}
+/* DIFFERENCE SECTION */
+.difference-section{
+  width:100%;
+  padding:110px 60px 130px;
+  background:#ffffff;
+  text-align:center;
+}
+.difference-section h1{
+  font-size:66px;
+  font-weight:500;
+  color:#111;
+  line-height:1.05;
+  letter-spacing:-3px;
+  margin-bottom:85px;
+}
+.difference-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+  max-width:1400px;
+  margin:auto;
+}
+.difference-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.icon{
+  margin-bottom:24px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.icon img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+.difference-item h2{
+  font-size:18px;
+  font-weight:500;
+  line-height:1.25;
+  color:#111;
+  margin-bottom:18px;
+}
+.difference-item p{
+  font-size:14px;
+  line-height:1.7;
+  color:#202124;
+  max-width:260px;
+}
+/* RESPONSIVE */
+@media(max-width:1200px){
+  .difference-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .difference-section h1{
+    font-size:52px;
+  }
+}
+@media(max-width:768px){
+  .difference-grid{
+    grid-template-columns:1fr;
+  }
+  .difference-section{
+    padding:90px 30px;
+  }
+  .difference-section h1{
+    font-size:40px;
+    margin-bottom:60px;
+  }
+  .difference-item h2{
+    font-size:18px;
+  }
+  .difference-item p{
+    font-size:14px;
+  }
+}
+/* WHICH PIXEL BUDS SECTION */
+.buds-choice-section{
+  width:100%;
+  padding:120px 48px 140px;
+  background:#ffffff;
+}
+.buds-choice-section h1{
+  text-align:center;
+  font-size:66px;
+  font-weight:500;
+  line-height:1.05;
+  letter-spacing:-3px;
+  color:#111;
+  margin-bottom:80px;
+}
+.buds-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:60px;
+  max-width:1200px;
+  margin:auto;
+}
+.buds-product h2{
+  font-size:34px;
+  font-weight:500;
+  color:#111;
+  margin-bottom:10px;
+}
+.price{
+  font-size:18px;
+  font-weight:500;
+  margin-bottom:8px;
+}
+.emi{
+  font-size:13px;
+  color:#555;
+  margin-bottom:22px;
+}
+.button-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:28px;
+}
+.buy-btn{
+  background:#0b57d0;
+  color:white;
+  border:none;
+  padding:11px 18px;
+  border-radius:22px;
+  font-size:15px;
+  cursor:pointer;
+}
+.button-row a{
+  color:#0b57d0;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+}
+.buds-image-card{
+  width:100%;
+  height:360px;
+  background:#f9f9f9;
+  border-radius:24px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.buds-image-card img{
+  width:72%;
+  object-fit:contain;
+}
+.color-row{
+  display:flex;
+  gap:14px;
+  margin-bottom:12px;
+}
+.color{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  cursor:pointer;
+  border:1px solid #ccc;
+}
+.active{
+  outline:2px solid #0b57d0;
+  outline-offset:2px;
+}
+.color-name{
+  font-size:14px;
+  color:#111;
+  margin-bottom:26px;
+}
+.small-card{
+  width:100%;
+  height:240px;
+  background:#f9f9f9;
+  border-radius:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  overflow:hidden;
+  padding-top:22px;
+}
+.small-card img{
+  width:42%;
+  object-fit:contain;
+  margin-bottom:18px;
+}
+.small-card a{
+  color:#0b57d0;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+}
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .buds-grid{
+    grid-template-columns:1fr;
+  }
+  .buds-choice-section h1{
+    font-size:46px;
+  }
+}
+/* COMPARISON SECTION */
+.comparison-section{
+  width:100%;
+  padding:80px 48px 120px;
+  background:#ffffff;
+}
+.compare-container{
+  width:82%;
+  max-width:1180px;
+  margin:auto;
+}
+.compare-block{
+  max-width:1400px;
+  margin:auto;
+  padding:28px 0 40px;
+  border-top:1px solid #d7d7d7;
+}
+.compare-title{
+  font-size:13px;
+  color:#3c4043;
+  margin-bottom:34px;
+}
+.compare-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:140px;
+}
+.compare-column{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.compare-icon{
+  margin-bottom:10px;
+}
+.compare-icon img{
+  width:26px;
+  height:26px;
+}
+.compare-column h3{
+  font-size:18px;
+  font-weight:400;
+  color:#111;
+  line-height:1.45;
+  letter-spacing:-0.3px;
+}
+.compare-column p{
+  font-size:22px;
+  font-weight:400;
+  color:#111;
+}
+.compare-column small{
+  font-size:13px;
+  color:#555;
+  margin-top:-8px;
+}
+.compare-button-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:70px;
+}
+.compare-btn{
+  background:#0b57d0;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .compare-grid{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+}
+/* ACCESSORIES SECTION */
+.accessories-section{
+  width:100%;
+  padding:120px 70px 140px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  background:#ffffff;
+}
+/* LEFT SIDE */
+.accessories-left h1{
+  font-size:72px;
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-3px;
+  color:#111;
+  margin-bottom:34px;
+}
+.accessories-left a{
+  font-size:22px;
+  color:#0b57d0;
+  text-decoration:none;
+  font-weight:500;
+}
+/* CARD */
+.accessory-card{
+  width:420px;
+  background:#f5f5f5;
+  border-radius:30px;
+  overflow:hidden;
+  padding-bottom:34px;
+  margin-top:60px;
+  align-self:center;
+}
+.accessory-image{
+  width:100%;
+  height:330px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 30px 0;
+}
+.accessory-image img{
+  width:88%;
+  max-height:260px;
+  object-fit:contain;
+}
+/* CONTENT */
+.accessory-content{
+  padding:0 30px;
+}
+.accessory-content h2{
+  font-size:34px;
+  font-weight:400;
+  line-height:1.18;
+  color:#111;
+  margin-bottom:28px;
+  letter-spacing:-1px;
+}
+.accessory-content button{
+  background:#0b57d0;
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:500;
+  cursor:pointer;
+}
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .accessories-section{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:70px;
+  }
+  .accessories-left h1{
+    font-size:52px;
+  }
+  .accessory-card{
+    width:100%;
+    max-width:450px;
+  }
+}
+/* MORE TO LOVE SECTION */
+.more-love-section{
+  width:100%;
+  padding:40px 70px 140px;
+  background:#ffffff;
+}
+.more-love-title{
+  max-width:1200px;
+  margin:auto;
+  margin-bottom:70px;
+}
+.more-love-title h1{
+  font-size:78px;
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-4px;
+  color:#111;
+}
+.more-love-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+.love-card{
+  background:#f9f9f9;
+  border-radius:30px;
+  overflow:hidden;
+  padding:26px 26px 34px;
+  position:relative;
+  transition:0.3s;
+}
+.love-card:hover{
+  transform:translateY(-5px);
+}
+.new-badge{
+  position:absolute;
+  top:24px;
+  left:24px;
+  background:#d2e3fc;
+  color:#1967d2;
+  font-size:14px;
+  font-weight:600;
+  padding:6px 12px;
+  border-radius:999px;
+}
+.love-image{
+  width:100%;
+  height:300px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:30px;
+}
+.love-image img{
+  width:95%;
+  height:290px;
+  object-fit:contain;
+}
+.love-card h2{
+  font-size:26px;
+  font-weight:500;
+  line-height:1.25;
+  letter-spacing:-1px;
+  color:#111;
+  margin-bottom:14px;
+}
+.love-card p{
+  font-size:16px;
+  font-weight:400;
+  color:#3c4043;
+  line-height:1.5;
+  margin-bottom:28px;
+}
+.love-price{
+  font-size:22px;
+  font-weight:500;
+  letter-spacing:-0.5px;
+  color:#111;
+  margin-bottom:18px;
+}
+.love-emi{
+  font-size:15px;
+  color:#3c4043;
+  line-height:1.6;
+  margin-bottom:34px;
+}
+.love-emi a{
+  color:#1967d2;
+  text-decoration:underline;
+}
+.love-btn{
+  background:#185abc;
+  color:white;
+  border:none;
+  padding:16px 38px;
+  border-radius:999px;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+}
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .more-love-grid{
+    grid-template-columns:1fr;
+  }
+  .more-love-title h1{
+    font-size:54px;
+  }
+}
+/* SHOP WITH CONFIDENCE */
+.confidence-section{
+  width:100%;
+  padding:40px 70px 140px;
+  background:#ffffff;
+}
+.confidence-title{
+  max-width:1500px;
+  margin:auto;
+  margin-bottom:70px;
+}
+.confidence-title h1{
+  font-size:84px;
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-4px;
+  color:#111;
+}
+.confidence-grid{
+  max-width:1500px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:36px;
+}
+.confidence-card{
+  background:#f8f9fa;
+  border-radius:34px;
+  height:350px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:50px 35px;
+}
+.confidence-icon{
+  margin-bottom:20px;
+}
+.confidence-card h2{
+  font-size:27px;
+  font-weight:500;
+  line-height:1.35;
+  letter-spacing:-1px;
+  color:#111;
+  margin-top:10px;
+  margin-bottom:42px;
+}
+.confidence-card button{
+  background:transparent;
+  border:2px solid #202124;
+  border-radius:999px;
+  padding:13px 28px;
+  font-size:17px;
+  font-weight:500;
+  cursor:pointer;
+}
+.confidence-icon img{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+}
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .confidence-grid{
+    grid-template-columns:1fr;
+  }
+  .confidence-title h1{
+    font-size:56px;
+  }
+  .confidence-card{
+    min-height:320px;
+  }
+}
+/* FOOTER SECTION */
+.footer-section{
+  width:100%;
+  background:#ffffff;
+  padding:70px 60px 30px;
+}
+/* DISCLAIMER TEXT */
+.footer-notes{
+  max-width:1500px;
+  margin:auto;
+  padding-bottom:70px;
+  border-bottom:1px solid #dadce0;
+}
+.footer-notes p{
+  font-size:13px;
+  color:#3c4043;
+  line-height:1.8;
+  margin-bottom:18px;
+}
+/* FOOTER TOP */
+.footer-top{
+  max-width:1500px;
+  margin:55px auto 0;
+  display:flex;
+  flex-direction:column;
+}
+/* LOGO */
+.footer-logo{
+  font-size:42px;
+  font-weight:500;
+  color:#202124;
+  margin-bottom:50px;
+}
+/* FOOTER LINKS */
+.footer-links{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:80px;
+  margin-bottom:70px;
+}
+.footer-column h3{
+  font-size:20px;
+  font-weight:500;
+  color:#111;
+  margin-bottom:28px;
+}
+.footer-column a{
+  display:block;
+  text-decoration:none;
+  color:#3c4043;
+  font-size:16px;
+  margin-bottom:22px;
+}
+/* BOTTOM BAR */
+.footer-bottom{
+  border-top:1px solid #dadce0;
+  padding-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.footer-bottom-left{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  flex-wrap:wrap;
+}
+.footer-bottom-left a{
+  text-decoration:none;
+  color:#3c4043;
+  font-size:13px;
+}
+.footer-bottom-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.footer-bottom-right img{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  cursor:pointer;
+}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .footer-links{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .footer-section{
+    padding:60px 30px 30px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    Celebrate our upcoming first Anniversary Sale with exclusive rewards!
+    <a href="#">Learn More</a>
+  </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <!-- LEFT -->
+    <div class="left-nav">
+     <div class="google-logo">Y</div>
+       <a href="#"><p>Phones</p></a>
+       <a href="#">Watches & Trackers</a>
+       <a href="#">Earbuds</a>
+       <a href="#">Accessories</a>
+       <a href="#">Offers</a>
+       <a href="#">Support</a>
+</div>
+    <!-- RIGHT -->
+    <div class="right-nav">
+      <span class="material-icons nav-icon">search</span>
+      <span class="material-icons nav-icon">shopping_cart</span>
+      <span class="material-icons nav-icon">apps</span>
+      <button class="signin-btn">Sign in</button>
+    </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Earbuds that sound<br>great, all around.</h1>
+  </section>
+  <!-- PRODUCTS -->
+  <section class="products">
+    <!-- PRODUCT 1 -->
+    <div class="product-item">
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/dUIZHb_y3tGsgmQgrzr0E0WHZr4HmxuD0PJl6RoK_NKcF_DS76HTQu_jRGJYQNbL6jHtjXQPLZtQ-AXij8rmUPUJxO7Qj3XOHm4=s6000-w6000-e365-rw-v0-nu" alt="pixel buds pro 2">
+      </div>
+      <h2>Pixel Buds Pro 2</h2>
+    </div>
+    <!-- PRODUCT 2 -->
+    <div class="product-item">
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/sZDRmkrx9XBVK28qUwM1o6LT5mcY64_y0o7b-gH43nsKv9OspOq7wBO9V1raZPs-kV5dfyWf6qlLLkoMJmGXP8KLgdcwIRPaEhU=s6000-w6000-e365-rw-v0-nu" alt="pixel buds 2a">
+      </div>
+      <h2>Pixel Buds 2a</h2>
+    </div>
+    <!-- PRODUCT 3 -->
+    <div class="product-item">
+      <div class="card">
+        <img src="https://lh3.googleusercontent.com/cjSsVhabHYwxM1ajvXQWbMg0g2fSpw4ipO3M24PLbjZkNhTwbaVl8agE7qdqr6EMGXsecqw09XXaZJPixTS27ZDtDtDsuhI35A=s0" alt="compare earbuds">
+      </div>
+      <h2>Compare earbuds</h2>
+    </div>
+  </section>
+  <!-- FEATURE CARDS -->
+<section class="feature-cards">
+  <!-- LEFT CARD -->
+  <div class="feature-card gray-card">
+    <div class="feature-content">
+      <h2>Google Pixel Buds Pro 2</h2>
+      <p>The most advanced Pixel Buds yet.</p>
+      <button>Learn more</button>
+    </div>
+    <img 
+      src="https://lh3.googleusercontent.com/xv1weHAv2k7M1vJJx-Qx5ZDjcUZk11gzfj_JIgBAlyZo-XXH7m15Lfgi9kK4XxmiUGHxPuuxFe-GwbVvwoBG7l5AS9A4bFK2tPA=s6000-w6000-e365-rw-v0-nu"
+      alt="Pixel Buds Pro 2">
+  </div>
+  <!-- RIGHT CARD -->
+  <div class="feature-card purple-card">
+    <div class="feature-content">
+      <h2>Google Pixel Buds 2a</h2>
+      <p>All-day battery and crisp audio, for less.<sup>2</sup></p>
+      <button>Learn more</button>
+    </div>
+    <img 
+      src="https://lh3.googleusercontent.com/2U3sukKJKHedtCeRSCgNeR6PyiW5mVBwVMdWfqcAuL4sMC_qOuyjq1FE3GIa8H1QQzWkIenBvzEOcqQxXnS03l45rSFy5k1D-P8=s6000-w6000-e365-rw-v0-nu"
+      alt="Pixel Buds 2a">
+  </div>
+</section>
+<!-- PIXEL BUDS DIFFERENT SECTION -->
+<section class="difference-section">
+  <h1>What makes Pixel<br>Buds different?</h1>
+  <div class="difference-grid">
+    <!-- ITEM 1 -->
+    <div class="difference-item">
+      <div class="icon">
+        <img src="https://storage.googleapis.com/mannequin/blobs/3187cda3-1eef-4ff8-93e1-d1eca5ba7265.svg" alt="Sparkle Icon">
+      </div>
+      <h2>Talk to Gemini for<br>hands-free help.</h2>
+      <p>Find info, get directions, and brainstorm ideas just by asking Gemini on your buds.<sup>3</sup></p>
+    </div>
+    <!-- ITEM 2 -->
+    <div class="difference-item">
+      <div class="icon">
+        <img src="https://storage.googleapis.com/mannequin/blobs/65891b39-2fb4-4e92-8f51-a0d4e456392b.svg" alt="Blue Icon">
+      </div>
+      <h2>Clear Calling,<br>powered by AI.</h2>
+      <p>Blocks out wind and background noise so your voice comes through loud and clear.<sup>7</sup></p>
+    </div>
+    <!-- ITEM 3 -->
+    <div class="difference-item">
+      <div class="icon">
+        <img src="https://storage.googleapis.com/mannequin/blobs/4ab15e90-c7f5-4b36-9006-8fe94df205a9.svg" alt="Chip Icon">
+      </div>
+      <h2>Google Tensor A1 chip.<br>Powerful performance.</h2>
+      <p>Built for Google AI, it processes audio 90 times faster than the speed of sound.<sup>4</sup></p>
+    </div>
+    <!-- ITEM 4 -->
+    <div class="difference-item">
+      <div class="icon">
+        <img src="https://storage.googleapis.com/mannequin/blobs/9a3509ae-878b-4432-8c92-8b3412336150.svg" alt="Orange Icon">
+      </div>
+      <h2>Designed to be the<br>most comfy earbuds.</h2>
+      <p>Twist to adjust from a relaxed fit to a more secure feel during workouts or commutes.</p>
+    </div>
+  </div>
+</section>
+<!-- WHICH PIXEL BUDS SECTION -->
+<section class="buds-choice-section">
+  <h1>Which Pixel Buds<br>are right for you?</h1>
+  <div class="buds-grid">
+    <!-- LEFT PRODUCT -->
+    <div class="buds-product">
+      <h2>Pixel Buds Pro 2</h2>
+      <div class="price">₹1,029.84/mo</div>
+      <div class="emi">
+        with low cost EMI at ₹2,290
+      </div>
+      <div class="button-row">
+        <button class="buy-btn">Buy</button>
+        <a href="#">Learn more ›</a>
+      </div>
+      <div class="buds-image-card">
+        <img 
+          src="https://lh3.googleusercontent.com/dUIZHb_y3tGsgmQgrzr0E0WHZr4HmxuD0PJl6RoK_NKcF_DS76HTQu_jRGJYQNbL6jHtjXQPLZtQ-AXij8rmUPUJxO7Qj3XOHm4=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel Buds Pro 2">
+      </div>
+      <!-- COLORS -->
+      <div class="color-row">
+        <span class="color active" style="background:#bfc7d4;"></span>
+        <span class="color" style="background:#d6d2ca;"></span>
+        <span class="color" style="background:#d7a4ae;"></span>
+        <span class="color" style="background:#444;"></span>
+      </div>
+      <div class="color-name">
+        Colour: Moonstone
+      </div>
+      <!-- 3D CARD -->
+      <div class="small-card">
+        <img 
+          src="https://lh3.googleusercontent.com/43OKEBJSunrxQ0OmyL-JPl73vS2xAw0Zf3XGafxdOkz0oaw0KNY7k5aSgroy_5OYmF51vR6ICfYdYiKq5IGbp5r27W-ifFAAkZNx=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel Buds Pro 2 in 3D">
+        <a href="#">See it in 3D ›</a>
+      </div>
+    </div>
+    <!-- RIGHT PRODUCT -->
+    <div class="buds-product">
+      <h2>Pixel Buds 2a</h2>
+      <div class="price">₹584.58/mo</div>
+      <div class="emi">
+        with low cost EMI at ₹2,999
+      </div>
+      <div class="button-row">
+        <button class="buy-btn">Buy</button>
+        <a href="#">Learn more ›</a>
+      </div>
+      <div class="buds-image-card">
+        <img 
+          src="https://lh3.googleusercontent.com/sZDRmkrx9XBVK28qUwM1o6LT5mcY64_y0o7b-gH43nsKv9OspOq7wBO9V1raZPs-kV5dfyWf6qlLLkoMJmGXP8KLgdcwIRPaEhU=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel Buds 2a">
+      </div>
+      <!-- COLORS -->
+      <div class="color-row">
+        <span class="color active" style="background:#d7dbf6;"></span>
+        <span class="color" style="background:#555;"></span>
+        <span class="color" style="background:#d7dcd6;"></span>
+        <span class="color" style="background:#ff6677;"></span>
+      </div>
+      <div class="color-name">
+        Colour: Iris
+      </div>
+      <!-- 3D CARD -->
+      <div class="small-card">
+        <img 
+          src="https://lh3.googleusercontent.com/tNinoY-tH-y1uXQlRMFnxYmJdDQTZPQRgYTSNOR40i3xdS3s9Cn_bfdbAWMlboQl0kYJh7jExc2YxY6F0SW2Nc37vnlDtBfLdg=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel Buds 2a   in 3D">
+        <a href="#">See it in 3D ›</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- COMPARISON SECTION -->
+<section class="comparison-section">
+  <div class="compare-container">
+  <!-- AUDIO -->
+  <div class="compare-block">
+    <div class="compare-title"><b>Audio</b></div>
+    <div class="compare-grid">
+      <!-- LEFT -->
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/9e584f5b-44b4-4f26-8ee7-bbb6dd10d15f.svg" alt="image not loaded">
+        </div>
+        <h3>Adaptive Audio</h3>
+        <h3>Active Noise Cancellation</h3>
+        <small>with Silent Seal™ 2.0</small>
+        <h3>Spatial audio with head tracking<sup>5</sup></h3>
+        <h3>Swipe to control volume</h3>
+      </div>
+      <!-- RIGHT -->
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/9e584f5b-44b4-4f26-8ee7-bbb6dd10d15f.svg" alt="image not loaded">
+        </div>
+        <p>–</p>
+        <p>–</p>
+        <h3>Active Noise Cancellation</h3>
+        <small>with Silent Seal™ 1.5</small>
+        <h3>Spatial Audio<sup>5</sup></h3>
+        <p>–</p>
+      </div>
+    </div>
+  </div>
+  <!-- LISTENING TIME -->
+  <div class="compare-block">
+    <div class="compare-title"><b>Listening time</b></div>
+    <div class="compare-grid">
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/299aa7f3-5f77-4f47-8382-f4957e8f2ab0.svg" alt="image not loaded">
+        </div>
+        <h3>Up to 30 hours</h3>
+        <small>
+          of listening time with charging case and ANC<sup>3</sup>
+        </small>
+        <h3>Wireless charging</h3>
+      </div>
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/299aa7f3-5f77-4f47-8382-f4957e8f2ab0.svg" alt="image not loaded">
+        </div>
+        <h3>Up to 20 hours</h3>
+        <small>
+          of listening time with charging case and ANC<sup>1</sup>
+        </small>
+        <p>–</p>
+      </div>
+    </div>
+  </div>
+  <!-- COMFORT -->
+  <div class="compare-block">
+    <div class="compare-title"><b>Comfort and fit</b></div>
+    <div class="compare-grid">
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/f6a63dbf-fd1f-4a70-839e-513a311e3b97.svg" alt="image not loaded">
+        </div>
+        <h3>Twist-to-adjust</h3>
+        <small>stabiliser</small>
+      </div>
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/f6a63dbf-fd1f-4a70-839e-513a311e3b97.svg"  alt="image not loaded">
+        </div>
+        <h3>Twist-to-adjust</h3>
+        <small>stabiliser</small>
+      </div>
+    </div>
+  </div>
+  <!-- PERFORMANCE -->
+  <div class="compare-block">
+    <div class="compare-title">Performance</div>
+    <div class="compare-grid">
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/4ab15e90-c7f5-4b36-9006-8fe94df205a9.svg" alt="">
+        </div>
+        <h3>Google Tensor A1 chip</h3>
+      </div>
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/4ab15e90-c7f5-4b36-9006-8fe94df205a9.svg" alt="">
+        </div>
+        <h3>Google Tensor A1 chip</h3>
+      </div>
+    </div>
+  </div>
+  <!-- GEMINI -->
+  <div class="compare-block">
+    <div class="compare-title">Gemini</div>
+    <div class="compare-grid">
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/3187cda3-1eef-4ff8-93e1-d1eca5ba7265.svg" alt="">
+        </div>
+        <h3>Talk to Gemini for hands-free help<sup>6</sup></h3>
+        <h3>Talk to Gemini Live in noisy spaces</h3>
+      </div>
+      <div class="compare-column">
+        <div class="compare-icon">
+          <img src="https://storage.googleapis.com/mannequin/blobs/3187cda3-1eef-4ff8-93e1-d1eca5ba7265.svg" alt="">
+        </div>
+        <h3>Talk to Gemini for hands-free help<sup>6</sup></h3>
+        <h3>Talk to Gemini Live<sup>5</sup></h3>
+      </div>
+    </div>
+  </div>
+  <!-- BUTTON -->
+  <div class="compare-button-wrap">
+    <button class="compare-btn">Compare all</button>
+  </div>
+  </div>
+</section>
+<!-- ACCESSORIES SECTION -->
+<section class="accessories-section">
+  <div class="accessories-left">
+    <h1>Accessories to<br>keep you moving.</h1>
+    <a href="#">Browse accessories ›</a>
+  </div>
+  <!-- ACCESSORY CARD -->
+  <div class="accessory-card">
+    <div class="accessory-image">
+      <img 
+        src="https://i.postimg.cc/pLnkFH8f/Gemini-Generated-Image-lha0rtlha0rtlha0.png"
+        alt="charger">
+    </div>
+    <div class="accessory-content">
+      <h2>Google 45W USB-C<br>Power Charger</h2>
+      <button>Buy</button>
+    </div>
+  </div>
+</section>
+<!-- MORE TO LOVE SECTION -->
+<section class="more-love-section">
+  <div class="more-love-title">
+    <h1>Wait, there's even<br>more to love</h1>
+  </div>
+  <div class="more-love-grid">
+    <!-- CARD 1 -->
+    <div class="love-card">
+      <div class="love-image">
+        <img
+          src="https://lh3.googleusercontent.com/uMzKTYX8GV_a4oALg9N-TLOABD0HAQlMcNDAzgIiHXiEt-qnZ5ecZLW4qmqt0pZ5IZjIPJuwWcfVanT9NH4JwcOEc0HbfyqnnA=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel 10 Pro">
+      </div>
+      <h2>Pixel 10 Pro & Pro XL</h2>
+      <p>Meet the new status pro.</p>
+      <div class="love-price">From ₹4,166.62/mo</div>
+      <div class="love-emi">with <a href="#">no-cost EMI & instant savings</a>or ₹1,09,999</div>
+      <button class="love-btn">Buy</button>
+    </div>
+    <!-- CARD 2 -->
+    <div class="love-card">
+      <div class="new-badge">New</div>
+      <div class="love-image">
+        <img
+          src="https://lh3.googleusercontent.com/W2MC3vgOrY8KjDoX85Iwf1XaOry4RpH0PQBzeR1Cl9BW7ABCMFWE2jD7xcDH7Z_1B6dewrohiVP4JnXGolaPlA_sxPRSxZrRmQ=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel 10a">
+      </div>
+      <h2>Pixel 10a</h2>
+      <p>The real deal.</p>
+      <div class="love-price">₹1,999.96/mo</div>
+      <div class="love-emi">with <a href="#">no-cost EMI & instant savings</a>or ₹49,999</div>
+      <button class="love-btn">Buy</button>
+    </div>
+    <!-- CARD 3 -->
+    <div class="love-card">
+      <div class="love-image">
+        <img
+          src="https://lh3.googleusercontent.com/wlEj2R-FA9gE9PBz1v50VDCfVcdmM59haH98fgwG600oIpz4Xg_hdRTiLJTxvlYuqIEwLIbBt3Mjv5OmnfNKSwP0AMyrsrUSGlc=s6000-w6000-e365-rw-v0-nu"
+          alt="Pixel Watch">
+      </div>
+      <h2>Google Pixel Watch 4</h2>
+      <p>Precision crafted. Performance ready.</p>
+      <div class="love-price">From ₹1,794.34/mo</div>
+      <div class="love-emi">
+        with <a href="#">low-cost EMI</a>
+        or ₹39,900
+      </div>
+      <button class="love-btn">Buy</button>
+    </div>
+  </div>
+</section>
+<!-- SHOP WITH CONFIDENCE SECTION -->
+<section class="confidence-section">
+  <div class="confidence-title">
+    <h1>Shop with confidence<br>on Google Store.</h1>
+  </div>
+  <div class="confidence-grid">
+    <!-- CARD 1 -->
+    <div class="confidence-card">
+      <div class="confidence-icon">
+       <img src="https://storage.googleapis.com/mannequin/blobs/16881e0a-9357-49f3-a450-534c95694be8.svg" alt="icon">
+       </div>
+      <h2>Get our price match promise.</h2>
+      <button>Learn more</button>
+    </div>
+    <!-- CARD 2 -->
+    <div class="confidence-card">
+      <div class="confidence-icon"><img src="https://storage.googleapis.com/mannequin/blobs/d34268a7-aaf7-431d-9d8d-f02798eb4c21.svg" alt="icon"></div>
+      <h2>Answers and support<br>at your fingertips.</h2>
+      <button>Learn more</button>
+    </div>
+    <!-- CARD 3 -->
+    <div class="confidence-card">
+      <div class="confidence-icon">
+       <img src="https://storage.googleapis.com/mannequin/blobs/7a206796-9a4e-40a2-9012-f8d8afe8bdf2.svg" alt="icon">
+      </div>
+      <h2>Free delivery<sup>†</sup></h2>
+      <button>Learn more</button>
+    </div>
+  </div>
+</section>
+<!-- FOOTER SECTION -->
+<section class="footer-section">
+  <!-- NOTES -->
+  <div class="footer-notes">
+    <p>1   All listening times are approximate and were measured using music playback with pre-production hardware and software,with fully charged Pixel Buds 2a and case and Active Noise Cancellation turned on but other features disabled. Case is used to recharge Pixel Buds 2a. Use of other features will decrease battery life. Battery life depends on device, features enabled, usage, environment, and many other factors. Actual battery life may be lower.</p>
+    <p>2  Call quality depends on signal strength, environment, network traffic, and many other factors.</p>
+    <p>3  All listening times are approximate and were measured using music playback with fully charged Pixel Buds Pro 2 and case, and other features disabled. The case is used to recharge Pixel Buds Pro 2. Charging times are approximate. The use of other features will decrease battery life. Battery life depends on the device, features enabled, usage, environment, and many other factors. Actual battery life may be lower.</p>
+    <p>4  Compared to Pixel Buds Pro (1st gen). Based on mid-frequency ranges (400 Hz–2 kHz)</p>
+    <p>5  Requires pairing with compatible Android devices and Gemini mobile app and a Google Account. Internet connection required. Features may differ depending on subscription and account. Some apps require setup. Available in select countries and languages. Check responses for accuracy. Data rates may apply.</p>
+    <p>6 Only available on the Pixel Tablet, Pixel 6, and newer Pixel phones  (excluding Pixel A-series phones). Devices sold separately. Requires the compatible app and supported content. See g.co/pixelbudspro/help for details.</p>
+    <p>† All orders that ship free use the lowest-cost option unless otherwise noted.</p>
+  </div>
+  <!-- FOOTER TOP -->
+  <div class="footer-top">
+    <div class="footer-logo">
+      Google Store
+    </div>
+    <!-- LINKS -->
+    <div class="footer-links">
+      <!-- COLUMN 1 -->
+      <div class="footer-column">
+        <h3>Orders</h3>
+        <a href="#">EMI & Cashback</a>
+        <a href="#">Exchange program</a>
+        <a href="#">Payment methods</a>
+        <a href="#">Shipping options</a>
+        <a href="#">Managing an order</a>
+        <a href="#">Country availability</a>
+      </div>
+      <!-- COLUMN 2 -->
+      <div class="footer-column">
+        <h3>Support</h3>
+        <a href="#">Help Centre</a>
+        <a href="#">Repairs</a>
+        <a href="#">Pixel Walk-in Centres</a>
+        <a href="#">Disability Support</a>
+        <a href="#">Fitbit support</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Send Feedback</a>
+      </div>
+      <!-- COLUMN 3 -->
+      <div class="footer-column">
+        <h3>Sustainability</h3>
+        <a href="#">Device recycling</a>
+      </div>
+    </div>
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <a href="#">India</a>
+        <a href="#">Privacy</a>
+        <a href="#">Google Nest Commitment to Privacy</a>
+        <a href="#">Sales Terms</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <div class="footer-bottom-right">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn_bRWRk4iJR54ee7a44Khjnc1pmI60wWvrA&s" alt="X">
+       <img src="https://static.vecteezy.com/system/resources/thumbnails/023/986/885/small/instagram-logo-instagram-logo-transparent-instagram-icon-transparent-free-free-png.png" alt="Instagram">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStixxgmXCRq9V0b8G85MJ0cTj1pT1AYOuoKg&s" alt="Facebook">
+       <img src="https://assets.bash.com/cms/200x/filters:quality(100):format(webp)/You_Tube_00d39bef25.jpg" alt="YouTube">
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
